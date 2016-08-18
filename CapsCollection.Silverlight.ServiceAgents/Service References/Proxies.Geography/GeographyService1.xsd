@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CapsCollection.Business.DTOs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CapsCollection.Business.DTOs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfContinentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContinentDto" nillable="true" type="tns:ContinentDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContinentDto" nillable="true" type="tns:ArrayOfContinentDto" />
+  <xs:complexType name="ContinentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContinentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContinentId" type="xs:int" />
+      <xs:element minOccurs="0" name="ContinentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnglishContinentName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContinentDto" nillable="true" type="tns:ContinentDto" />
+  <xs:complexType name="ArrayOfCountryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryDto" nillable="true" type="tns:CountryDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountryDto" nillable="true" type="tns:ArrayOfCountryDto" />
+  <xs:complexType name="CountryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alpha2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Alpha3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Continent" nillable="true" type="tns:ContinentDto" />
+      <xs:element minOccurs="0" name="ContinentId" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="EnglishCountryFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnglishCountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalCountryFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalCountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreciseLocation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountryDto" nillable="true" type="tns:CountryDto" />
+  <xs:complexType name="ArrayOfImageFileOperationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageFileOperationDto" nillable="true" type="tns:ImageFileOperationDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageFileOperationDto" nillable="true" type="tns:ArrayOfImageFileOperationDto" />
+  <xs:complexType name="ImageFileOperationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Container" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNameTemplate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileOperation" type="tns:FileOperation" />
+      <xs:element minOccurs="0" name="ImageBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="OldFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentContainer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceFileFullName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageFileOperationDto" nillable="true" type="tns:ImageFileOperationDto" />
+  <xs:simpleType name="FileOperation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Save" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Update" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FileOperation" nillable="true" type="tns:FileOperation" />
+  <xs:complexType name="ArrayOfRegionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionDto" nillable="true" type="tns:RegionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegionDto" nillable="true" type="tns:ArrayOfRegionDto" />
+  <xs:complexType name="RegionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="EnglishRegionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalRegionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionDto" nillable="true" type="tns:RegionDto" />
+  <xs:complexType name="ArrayOfCityDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CityDto" nillable="true" type="tns:CityDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCityDto" nillable="true" type="tns:ArrayOfCityDto" />
+  <xs:complexType name="CityDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityId" type="xs:int" />
+      <xs:element minOccurs="0" name="EnglishCityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalCityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CityDto" nillable="true" type="tns:CityDto" />
+  <xs:complexType name="ArrayOfBeerCountryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BeerCountryDto" nillable="true" type="tns:BeerCountryDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBeerCountryDto" nillable="true" type="tns:ArrayOfBeerCountryDto" />
+  <xs:complexType name="BeerCountryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alpha3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeerCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Continent" nillable="true" type="tns:ContinentDto" />
+      <xs:element minOccurs="0" name="ContinentId" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="EnglishCountryFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnglishCountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalCountryFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalCountryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BeerCountryDto" nillable="true" type="tns:BeerCountryDto" />
+</xs:schema>

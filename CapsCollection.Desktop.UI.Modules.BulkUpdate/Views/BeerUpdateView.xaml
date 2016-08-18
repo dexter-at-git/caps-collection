@@ -1,0 +1,378 @@
+﻿<UserControl x:Class="CapsCollection.Desktop.UI.Modules.BulkUpdate.Views.BeerUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:CapsCollection.Desktop.Infrastructure.Converters;assembly=CapsCollection.Desktop.Infrastructure"
+             xmlns:resources="clr-namespace:CapsCollection.Desktop.UI.Modules.BulkUpdate.Resources"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:BinaryImageConverter x:Key="ImageConverter" />
+        <converters:EmptyByteToBoolConverter x:Key="EmptyByteToBoolConverter" />
+    </UserControl.Resources>
+
+    <Border BorderThickness="1" BorderBrush="{DynamicResource GrayBrush4}" CornerRadius="5" Margin="5" Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30"  />
+                <RowDefinition Height="30"  />
+                <RowDefinition Height="30"  />
+                <RowDefinition Height="30"  />
+                <RowDefinition Height="30"  />
+                <RowDefinition Height="30"  />
+                <RowDefinition Height="30"  />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.RowSpan="8"
+                        Margin="5,5,5,5"
+                        Orientation="Horizontal">
+
+                <Image VerticalAlignment="Center"
+                       Width="75" 
+                       Height="150"
+                       Source="{Binding Path=BottleImage.ThumbnailUri}">
+                    <ToolTipService.ToolTip>
+                        <StackPanel Orientation="Vertical" Background="White">
+                            <StackPanel Background="Gainsboro" Margin="15,15,15,15">
+                                <Image Margin="0,0,0,0" 
+                                       Source="{Binding Path=BottleImage.PreviewUri}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ToolTipService.ToolTip>
+                </Image>
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <Image VerticalAlignment="Center"  
+                           Width="100" 
+                           Height="100"
+                           Source="{Binding Path=CapImage.ThumbnailUri}">
+                        <ToolTipService.ToolTip>
+                            <StackPanel Orientation="Vertical" Background="White">
+                                <StackPanel Background="Gainsboro" Margin="15,15,15,15">
+                                    <Image Margin="0,0,0,0" 
+                                           Source="{Binding Path=CapImage.PreviewUri}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </ToolTipService.ToolTip>
+                    </Image>
+
+                    <Image VerticalAlignment="Center"
+                           Width="100" 
+                           Height="100"
+                           Source="{Binding Path=LabelImage.ThumbnailUri}">
+                        <ToolTipService.ToolTip>
+                            <StackPanel Orientation="Vertical" Background="White">
+                                <StackPanel Background="Gainsboro" Margin="15,15,15,15">
+                                    <Image Margin="0,0,0,0" 
+                                           Source="{Binding Path=LabelImage.PreviewUri}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </ToolTipService.ToolTip>
+                    </Image>
+                </StackPanel>
+
+                <Canvas Width="48" Height="48" Clip="F1 M 0,0L 48,0L 48,48L 0,48L 0,0" UseLayoutRounding="False">
+                    <Path Width="25" Height="18" Canvas.Left="11" Canvas.Top="15" Stretch="Fill" Fill="{DynamicResource BlackBrush}" Data="F1 M 36,22L 36,26L 19.75,26L 27,33L 20.5,33L 11,24L 20.5,15L 27,15L 19.75,22L 36,22 Z " />
+                </Canvas>
+
+                <Image VerticalAlignment="Center"
+                       Width="75" 
+                       Height="150"
+                       Source="{Binding Path=BottleImage.ThumbnailBytes, Converter={StaticResource ImageConverter}, ConverterParameter=Bottle}"
+                       ToolTipService.IsEnabled="{Binding Path=BottleImage.ThumbnailBytes, Converter={StaticResource EmptyByteToBoolConverter}}">
+                    <ToolTipService.ToolTip>
+                        <StackPanel Orientation="Vertical" Background="White">
+                            <StackPanel Background="Gainsboro" Margin="15,15,15,0">
+                                <Image Margin="0,0,0,0" 
+                                       Source="{Binding Path=BottleImage.PreviewBytes, Converter={StaticResource ImageConverter}, ConverterParameter=Bottle}"/>
+                            </StackPanel>
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BottleFileName}}" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=BottleImage.FileName}" />
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BottleFullSize}}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=BottleImage.FullSize}" />
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BottlePreviewSize}}" />
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=BottleImage.PreviewSize}" />
+
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BottleThumbnailSize}}" />
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=BottleImage.ThumbnailSize}" />
+                            </Grid>
+                        </StackPanel>
+                    </ToolTipService.ToolTip>
+                </Image>
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <Image VerticalAlignment="Center"  
+                           Width="100" 
+                           Height="100"
+                           Source="{Binding Path=CapImage.ThumbnailBytes, Converter={StaticResource ImageConverter}, ConverterParameter=Cap}"
+                           ToolTipService.IsEnabled="{Binding Path=CapImage.ThumbnailBytes, Converter={StaticResource EmptyByteToBoolConverter}}">
+                        <ToolTipService.ToolTip>
+                            <StackPanel Orientation="Vertical" Background="White">
+                                <StackPanel Background="Gainsboro" Margin="15,15,15,0">
+                                    <Image Margin="0,0,0,0" 
+                                           Source="{Binding Path=CapImage.PreviewBytes, Converter={StaticResource ImageConverter}, ConverterParameter=Cap}"/>
+                                </StackPanel>
+                                <Grid Margin="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.CapFileName}}" />
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=CapImage.FileName}" />
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.CapFullSize}}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=CapImage.FullSize}" />
+
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.CapPreviewSize}}" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=CapImage.PreviewSize}" />
+
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.CapThumbnailSize}}" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=CapImage.ThumbnailSize}" />
+                                </Grid>
+                            </StackPanel>
+                        </ToolTipService.ToolTip>
+                    </Image>
+
+                    <Image VerticalAlignment="Center"
+                           Width="100" 
+                           Height="100"
+                           Source="{Binding Path=LabelImage.ThumbnailBytes, Converter={StaticResource ImageConverter}, ConverterParameter=Label}"
+                           ToolTipService.IsEnabled="{Binding Path=LabelImage.ThumbnailBytes, Converter={StaticResource EmptyByteToBoolConverter}}">
+                        <ToolTipService.ToolTip>
+                            <StackPanel Orientation="Vertical" Background="White">
+                                <StackPanel Background="Gainsboro" Margin="15,15,15,0">
+                                    <Image Margin="0,0,0,0" 
+                                           Source="{Binding Path=LabelImage.PreviewBytes, Converter={StaticResource ImageConverter}, ConverterParameter=Label}"/>
+                                </StackPanel>
+                                <Grid Margin="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.LabelFileName}}" />
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=LabelImage.FileName}" />
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.LabelFullSize}}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=LabelImage.FullSize}" />
+
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.LabelPreviewSize}}" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=LabelImage.PreviewSize}" />
+
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.LabelThumbnailSize}}" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=LabelImage.ThumbnailSize}" />
+                                </Grid>
+                            </StackPanel>
+                        </ToolTipService.ToolTip>
+                    </Image>
+                </StackPanel>
+
+            </StackPanel>
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerInfo}}"
+                       FontWeight="Bold"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerName}}"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <TextBox Grid.Column="2"
+                     Grid.Row="1"
+                     HorizontalAlignment="Center"
+                     Text="{Binding Path=BeerName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                     VerticalAlignment="Center"
+                     Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerType}}"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <TextBox Grid.Column="2"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     Text="{Binding Path=BeerType, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                     VerticalAlignment="Center"
+                     Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerStyle}}"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <ComboBox Grid.Column="2"
+                      Grid.Row="3"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      ItemsSource="{Binding BeerStyles}" 
+                      SelectedItem="{Binding SelectedBeerStyle, Mode=TwoWay}" 
+                      DisplayMemberPath="BeerStyleName" 
+                      Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerPrice}}"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <TextBox Grid.Column="2"
+                     Grid.Row="4"
+                     HorizontalAlignment="Center"
+                     Text="{Binding Path=BeerPrice, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                     VerticalAlignment="Center"
+                     Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerYear}}"
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <DatePicker Grid.Column="2" 
+                        Grid.Row="5"
+                        SelectedDateFormat="Short" 
+                        SelectedDate="{Binding Path=BeerYear, Mode=TwoWay}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="250">
+                <DatePicker.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerSite}}"
+                       Grid.Column="1"
+                       Grid.Row="6"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <TextBox Grid.Column="2"
+                     Grid.Row="6"
+                     HorizontalAlignment="Center"
+                     Text="{Binding Path=BeerSite, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                     VerticalAlignment="Center"
+                     Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BeerComment}}"
+                       Grid.Column="1"
+                       Grid.Row="7"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+            <TextBox Grid.Column="2"
+                     Grid.Row="7"
+                     HorizontalAlignment="Center"
+                     Text="{Binding Path=BeerComment, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                     VerticalAlignment="Center"
+                     Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.BreweryInfo}}"
+                       FontWeight="Bold"
+                       Grid.Column="3"
+                       Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+            <ComboBox Grid.Column="3"
+                      Grid.Row="1" 
+                      ItemsSource="{Binding Countries}" 
+                      SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" 
+                      IsEnabled="{Binding Path=IsCountryListEnabled}"
+                      DisplayMemberPath="EnglishCountryName"
+                      VerticalAlignment="Center"
+                      Width="250" />
+
+            <ComboBox Grid.Column="3"
+                      Grid.Row="2"
+                      ItemsSource="{Binding Breweries}" 
+                      SelectedItem="{Binding SelectedBrewery, Mode=TwoWay}" 
+                      IsEnabled="{Binding Path=IsBreweryListEnabled}"
+                      DisplayMemberPath="Brewery"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Width="250" />
+
+            <TextBlock Text="{Binding Source={x:Static resources:BulkUpdateModuleStrings.CapType}}"
+                       FontWeight="Bold"
+                       Grid.Column="3"
+                       Grid.Row="4"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+            <ComboBox Grid.Column="3"
+                      Grid.Row="5"
+                      ItemsSource="{Binding CapTypes}" 
+                      SelectedItem="{Binding SelectedCapType, Mode=TwoWay}" 
+                      DisplayMemberPath="CapTypeName" 
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Width="250" />
+
+            <Button Content="{Binding Source={x:Static resources:BulkUpdateModuleStrings.UpdateCollection}}"
+                    Grid.Column="4"
+                    Grid.Row="3"
+                    Command="{Binding SaveBeerCommand}" 
+                    CommandParameter="{Binding}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+
+            <Button Content="{Binding Source={x:Static resources:BulkUpdateModuleStrings.Delete}}"
+                    Grid.Column="4"
+                    Grid.Row="4"
+                    Command="{Binding DeleteBeerCommand}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+
+        </Grid>
+    </Border>
+
+</UserControl>

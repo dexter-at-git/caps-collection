@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="CapsCollection.Silverlight.UI.Modules.Collection.Views.BeerCountriesListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:infControls="clr-namespace:CapsCollection.Silverlight.Infrastructure.Controls;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:converters="clr-namespace:CapsCollection.Silverlight.Infrastructure.Converters;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactivity"    
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:prism="http://www.codeplex.com/prism"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <ei:Interaction.Triggers>
+        <prism:InteractionRequestTrigger SourceObject="{Binding ShowMessagebox}">
+            <prism:PopupChildWindowAction/>
+        </prism:InteractionRequestTrigger>
+
+        <prism:InteractionRequestTrigger SourceObject="{Binding ShowConfirmation}">
+            <prism:PopupChildWindowAction/>
+        </prism:InteractionRequestTrigger>
+    </ei:Interaction.Triggers>
+
+    <UserControl.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <converters:InvisibilityConverter x:Key="InvisibilityConverter" />
+
+        <!-- Countries list box -->
+        <Style x:Key="CountryListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid>
+                            <vsm:VisualStateManager.VisualStateGroups>
+
+                                <vsm:VisualStateGroup x:Name="CommonStates">
+                                    <vsm:VisualState x:Name="Normal"/>
+                                    <vsm:VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="imgFlagProjection" Storyboard.TargetProperty="RotationY" From="0" To="360" Duration="00:00:01"/>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="fillColor" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value=".35"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                    <vsm:VisualState x:Name="Disabled" />
+                                </vsm:VisualStateGroup>
+
+                                <vsm:VisualStateGroup x:Name="FocusStates">
+                                    <vsm:VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                    <vsm:VisualState x:Name="Unfocused"/>
+                                </vsm:VisualStateGroup>
+
+                                <vsm:VisualStateGroup x:Name="SelectionStates">
+                                    <vsm:VisualStateGroup.Transitions>
+                                        <vsm:VisualTransition GeneratedDuration="00:00:00" To="Selected"/>
+                                    </vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualState x:Name="Unselected"/>
+                                    <vsm:VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="fillColor2" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value=".75"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </vsm:VisualState>
+                                </vsm:VisualStateGroup>
+
+                            </vsm:VisualStateManager.VisualStateGroups>
+
+                            <Rectangle x:Name="fillColor" Opacity="0" Fill="#FFBADDE9" IsHitTestVisible="False" RadiusX="1" RadiusY="1"/>
+                            <Rectangle x:Name="fillColor2" Opacity="0" Fill="#FFBADDE9" IsHitTestVisible="False" RadiusX="1" RadiusY="1"/>
+                            <Rectangle x:Name="FocusVisualElement" Visibility="Collapsed" Stroke="#FF6DBDD1" StrokeThickness="1" RadiusX="1" RadiusY="1"/>
+
+                            <!-- Content Begin -->
+                            <StackPanel ScrollViewer.VerticalScrollBarVisibility="Visible" Orientation="Horizontal" Margin="2,2,2,2" Background="Transparent">
+                                <Image x:Name="imgCountryFlag" Source="{Binding Path=FlagRoundImage}" Height="24" Width="24">
+                                    <Image.Projection>
+                                        <PlaneProjection x:Name="imgFlagProjection" />
+                                    </Image.Projection>
+                                </Image>
+                                <ContentPresenter />
+                            </StackPanel>
+                            <!-- Content End -->
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Countries list box -->
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Border VerticalAlignment="Center" 
+                Width="200"
+                Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}}">
+
+            <infControls:LoadingIndicator Style="{StaticResource LoadingIndicatorStyle}" />
+
+        </Border>
+
+        <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 Width="200"
+                 ItemsSource="{Binding Countries}"
+                 SelectedItem="{Binding Path=SelectedCountry, Mode=TwoWay}"           
+                 ItemContainerStyle="{StaticResource CountryListBoxItemStyle}"
+                 Visibility="{Binding IsBusy, Converter={StaticResource InvisibilityConverter}}">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=EnglishCountryName}" 
+                                   Margin="5,0,0,0"
+                                   Width="100" 
+                                   TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding Path=BeerCount}" 
+                                   Margin="20,0,0,0"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+    </Grid>
+</UserControl>

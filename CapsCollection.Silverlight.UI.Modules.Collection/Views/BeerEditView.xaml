@@ -1,0 +1,351 @@
+﻿<UserControl x:Class="CapsCollection.Silverlight.UI.Modules.Collection.Views.BeerEditView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:infBehaviors="clr-namespace:CapsCollection.Silverlight.Infrastructure.Behaviors;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactivity"    
+    xmlns:prism="http://www.codeplex.com/prism"  
+    xmlns:converters="clr-namespace:CapsCollection.Silverlight.Infrastructure.Converters;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:infControls="clr-namespace:CapsCollection.Silverlight.Infrastructure.Controls;assembly=CapsCollection.Silverlight.Infrastructure"
+    mc:Ignorable="d">
+
+    <ei:Interaction.Triggers>
+        <prism:InteractionRequestTrigger SourceObject="{Binding ShowMessagebox}">
+            <prism:PopupChildWindowAction/>
+        </prism:InteractionRequestTrigger>
+    </ei:Interaction.Triggers>
+
+    <UserControl.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <converters:InvisibilityConverter x:Key="InvisibilityConverter" />
+        <converters:BinaryImageConverter x:Key="ImageConverter" />
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Margin="20,20,20,20" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Continent:"
+                   Grid.Column="0"
+                   Grid.Row="0" />
+
+        <ComboBox Grid.Column="1"
+                  Grid.Row="0"
+                  ItemsSource="{Binding Continents}" 
+                  SelectedItem="{Binding Path=DataContext.SelectedContinent, Mode=TwoWay, ElementName=LayoutRoot}" 
+                  IsEnabled="{Binding Path=IsContinentListEnabled}"
+                  DisplayMemberPath="EnglishContinentName" />
+
+        <TextBlock Text="Country:"
+                   Grid.Column="0"
+                   Grid.Row="2" />
+
+        <ComboBox Grid.Column="1"
+                  Grid.Row="2"
+                  ItemsSource="{Binding Countries}" 
+                  SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" 
+                  IsEnabled="{Binding Path=IsCountryListEnabled}"
+                  DisplayMemberPath="EnglishCountryName" />
+
+        <TextBlock Text="Brewery:"
+                   Grid.Column="0"
+                   Grid.Row="4" />
+
+        <ComboBox Grid.Column="1"
+                  Grid.Row="4"
+                  ItemsSource="{Binding Breweries}" 
+                  SelectedItem="{Binding SelectedBrewery, Mode=TwoWay}" 
+                  IsEnabled="{Binding Path=IsBreweryListEnabled}"
+                  DisplayMemberPath="Brewery" />
+
+        <sdk:DescriptionViewer  Grid.Column="2"
+                                Grid.Row="4"
+                                HorizontalAlignment="Center"
+                                Description="Required" />
+
+        <TextBlock Text="Beer:"
+                   Grid.Column="0"
+                   Grid.Row="6" />
+
+        <TextBox Grid.Column="1"
+                 Grid.Row="6"
+                 Text="{Binding Path=BeerName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <sdk:DescriptionViewer Grid.Column="2"
+                               Grid.Row="6"
+                               HorizontalAlignment="Center"
+                               Description="Required"/>
+
+        <TextBlock Text="Beer type:"
+                   Grid.Column="0"
+                   Grid.Row="8" />
+
+        <TextBox Grid.Column="1"
+                 Grid.Row="8"
+                 Text="{Binding Path=BeerType, Mode=TwoWay}" />
+
+        <TextBlock Text="Beer style:"
+                   Grid.Column="0"
+                   Grid.Row="10" />
+
+        <ComboBox Grid.Column="1"
+                  Grid.Row="10"
+                  ItemsSource="{Binding BeerStyles}" 
+                  SelectedItem="{Binding SelectedBeerStyle, Mode=TwoWay}" 
+                  DisplayMemberPath="BeerStyleName" />
+
+        <sdk:DescriptionViewer Grid.Column="2"
+                               Grid.Row="10"
+                               HorizontalAlignment="Center"
+                               Description="Required"/>
+
+        <TextBlock Text="Price:"
+                   Grid.Column="0"
+                   Grid.Row="12" />
+
+        <TextBox Grid.Column="1"
+                 Grid.Row="12"
+                 Text="{Binding Path=BeerPrice, Mode=TwoWay}" />
+
+        <TextBlock Text="Year:"
+                   Grid.Column="0"
+                   Grid.Row="14" />
+
+        <sdk:DatePicker Grid.Column="1" 
+                        Grid.Row="14"
+                        SelectedDateFormat="Short" 
+                        SelectedDate="{Binding Path=BeerYear, Mode=TwoWay}" />
+
+        <TextBlock Text="Beer site:"
+                   Grid.Column="0"
+                   Grid.Row="16" />
+
+        <TextBox Grid.Column="1"
+                 Grid.Row="16"
+                 Text="{Binding Path=BeerSite, Mode=TwoWay}" />
+
+        <TextBlock Text="Comment:"
+                   Grid.Column="0"
+                   Grid.Row="18" />
+
+        <TextBox Grid.Column="1"
+                 Grid.Row="18"
+                 Text="{Binding Path=BeerComment, Mode=TwoWay}" />
+
+        <StackPanel Grid.Row="20"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+
+            <Grid Margin="0,0,4,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       Width="100" Height="100"
+                       Source="{Binding Path=BottleImage.ThumbnailImage}" />
+
+                <Button Grid.Column="0"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"
+                        Width="20" Height="30" 
+                        Cursor="Hand" 
+                        RenderTransformOrigin="0.5, 0.5">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleY="0.7" ScaleX="0.7" />
+                    </Button.RenderTransform>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <infBehaviors:OpenFileDialogBehavior FileDialogDialogResultCommand="{Binding DataContext.SelectedBottleImage, Mode=TwoWay, ElementName=LayoutRoot}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ed:BlockArrow Fill="Black" Height="11" Orientation="Up" UseLayoutRounding="False" Width="11"/>
+                </Button>
+
+                <Button Grid.Column="1"
+                        Content="X"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding DataContext.ClearBottleImageCommand, ElementName=LayoutRoot}"
+                        Width="20" Height="30" 
+                        Cursor="Hand"  
+                        RenderTransformOrigin="0.5, 0.5">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleY="0.7" ScaleX="0.7" />
+                    </Button.RenderTransform>
+                </Button>
+
+            </Grid>
+
+            <Grid Margin="0,0,4,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       VerticalAlignment="Top"
+                       Width="100" Height="100"
+                       Source="{Binding Path=CapImage.ThumbnailImage}"/>
+
+                <Button Grid.Column="0"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"
+                        Width="20" Height="30" 
+                        Cursor="Hand" 
+                        RenderTransformOrigin="0.5, 0.5">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleY="0.7" ScaleX="0.7" />
+                    </Button.RenderTransform>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <infBehaviors:OpenFileDialogBehavior FileDialogDialogResultCommand="{Binding DataContext.SelectedCapImage, Mode=TwoWay, ElementName=LayoutRoot}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ed:BlockArrow Fill="Black" Height="11" Orientation="Up" UseLayoutRounding="False" Width="11"/>
+                </Button>
+
+                <Button Grid.Column="1"
+                        Content="X"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding DataContext.ClearCapImageCommand, ElementName=LayoutRoot}"
+                        Width="20" Height="30" 
+                        Cursor="Hand" 
+                        RenderTransformOrigin="0.5, 0.5">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleY="0.7" ScaleX="0.7" />
+                    </Button.RenderTransform>
+                </Button>
+
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       VerticalAlignment="Top"
+                       Width="100" Height="100"
+                       Source="{Binding Path=LabelImage.ThumbnailImage}" />
+
+                <Button Grid.Column="0"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"
+                        Width="20" Height="30" 
+                        Cursor="Hand" 
+                        RenderTransformOrigin="0.5, 0.5">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleY="0.7" ScaleX="0.7" />
+                    </Button.RenderTransform>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <infBehaviors:OpenFileDialogBehavior FileDialogDialogResultCommand="{Binding DataContext.SelectedLabelImage, Mode=TwoWay, ElementName=LayoutRoot}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ed:BlockArrow Fill="Black" Height="11" Orientation="Up" UseLayoutRounding="False" Width="11"/>
+                </Button>
+
+                <Button Grid.Column="1"
+                        Content="X"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding DataContext.ClearLabelImageCommand, ElementName=LayoutRoot}"
+                        Width="20" Height="30" 
+                        Cursor="Hand" 
+                        RenderTransformOrigin="0.5, 0.5">
+                    <Button.RenderTransform>
+                        <ScaleTransform ScaleY="0.7" ScaleX="0.7" />
+                    </Button.RenderTransform>
+                </Button>
+
+            </Grid>
+
+        </StackPanel>
+
+        <ComboBox Grid.Row="22"
+                  Grid.ColumnSpan="3"
+                  HorizontalAlignment="Center"
+                  ItemsSource="{Binding CapTypes}" 
+                  SelectedItem="{Binding SelectedCapType, Mode=TwoWay}" 
+                  DisplayMemberPath="CapTypeName"  />
+
+        <Button Grid.Row="24"
+                Grid.ColumnSpan="3"
+                Content="Save"
+                Command="{Binding SaveCommand}"
+                Width="75" />
+
+
+        <TextBlock Grid.Row="26"
+                   Grid.ColumnSpan="3"
+                   Text="Cannot save! Please authenticate."
+                   HorizontalAlignment="Center"
+                   Foreground="Red"
+                   Visibility="{Binding IsAuthenticated, Converter={StaticResource InvisibilityConverter}}"/>
+
+        <Border Grid.Row="0" 
+                Grid.RowSpan="26"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Background="White"
+                Opacity=".8" 
+                Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}}"/>
+
+        <Border Grid.Row="0" 
+                Grid.RowSpan="26"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}}">
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <infControls:LoadingIndicator Style="{StaticResource LoadingIndicatorStyle}" />
+                <TextBlock Text="{Binding DataContext.StatusMessage, ElementName=LayoutRoot}" />
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</UserControl>

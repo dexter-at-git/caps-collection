@@ -1,0 +1,356 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{838C2708-F855-4545-921C-61A96FB86666}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Silverlight", "Silverlight", "{8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{13D9C5B2-6CF0-4315-90F1-C1AEF0AB3D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Data", "CapsCollection.Data\CapsCollection.Data.csproj", "{69D9E32B-4391-4305-A180-F1FC6639CAC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Business", "CapsCollection.Business\CapsCollection.Business.csproj", "{165D303C-62BB-4A73-90E1-D3B86D1805F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Shell", "CapsCollection.Desktop.UI.Shell\CapsCollection.Desktop.UI.Shell.csproj", "{1FA3505E-FF25-4EDF-BBB3-0714C996E57F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.Infrastructure", "CapsCollection.Desktop.Infrastructure\CapsCollection.Desktop.Infrastructure.csproj", "{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Modules.BulkLoad", "CapsCollection.Desktop.UI.Modules.BulkLoad\CapsCollection.Desktop.UI.Modules.BulkLoad.csproj", "{D122597E-F8E1-410E-866B-35B84B42DB1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Modules.Services", "CapsCollection.Desktop.UI.Modules.Services\CapsCollection.Desktop.UI.Modules.Services.csproj", "{A486B4CB-719C-413E-A416-FCEF84E5886D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Modules.StatusBar", "CapsCollection.Desktop.UI.Modules.StatusBar\CapsCollection.Desktop.UI.Modules.StatusBar.csproj", "{43CB5D90-72A4-4744-BC23-7DA5E9438827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Modules.BulkUpdate", "CapsCollection.Desktop.UI.Modules.BulkUpdate\CapsCollection.Desktop.UI.Modules.BulkUpdate.csproj", "{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Shell", "CapsCollection.Silverlight.UI.Shell\CapsCollection.Silverlight.UI.Shell.csproj", "{6D2A4B2E-89E1-4819-A2CF-DB329DC13CA6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101} = {E3B40B74-5FF0-4027-862F-BB65BE2EB101}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Modules.Geography", "CapsCollection.Silverlight.UI.Modules.Geography\CapsCollection.Silverlight.UI.Modules.Geography.csproj", "{8BA64CD5-06ED-4187-8888-B33A3D42656A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.Infrastructure", "CapsCollection.Silverlight.Infrastructure\CapsCollection.Silverlight.Infrastructure.csproj", "{A23424FB-5EA4-4CC6-A719-B3477430DED5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Web.ServiceHost", "CapsCollection.Web.ServiceHost\CapsCollection.Web.ServiceHost.csproj", "{E3B40B74-5FF0-4027-862F-BB65BE2EB101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.ServiceAgents", "CapsCollection.Silverlight.ServiceAgents\CapsCollection.Silverlight.ServiceAgents.csproj", "{279D8412-C89E-4F21-A660-82138F230D1D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101} = {E3B40B74-5FF0-4027-862F-BB65BE2EB101}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Modules.Settings", "CapsCollection.Desktop.UI.Modules.Settings\CapsCollection.Desktop.UI.Modules.Settings.csproj", "{DB811C74-7B2E-49C8-9D40-0EDEDF6C6731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Modules.Authentication", "CapsCollection.Silverlight.UI.Modules.Authentication\CapsCollection.Silverlight.UI.Modules.Authentication.csproj", "{42E48ECD-B848-4181-B6FE-5A5A569DEAC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Modules.Services", "CapsCollection.Silverlight.UI.Modules.Services\CapsCollection.Silverlight.UI.Modules.Services.csproj", "{880E57E4-5910-474B-9FCD-27EE663B8C13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Modules.Brewery", "CapsCollection.Silverlight.UI.Modules.Brewery\CapsCollection.Silverlight.UI.Modules.Brewery.csproj", "{3D990861-0BF3-4080-A305-2FEBEBC96E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Modules.Collection", "CapsCollection.Silverlight.UI.Modules.Collection\CapsCollection.Silverlight.UI.Modules.Collection.csproj", "{BE1A62E4-F5D2-4908-BE96-09E5F03CB3BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Web.UI", "CapsCollection.Web.UI\CapsCollection.Web.UI.csproj", "{A9E4F625-3269-418C-A46A-DD407944D70F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.UI.Modules.BeerStyle", "CapsCollection.Silverlight.UI.Modules.BeerStyle\CapsCollection.Silverlight.UI.Modules.BeerStyle.csproj", "{A2FE1CC7-AD99-4708-83AF-5D62F2C804CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.UI.Modules.Home", "CapsCollection.Desktop.UI.Modules.Home\CapsCollection.Desktop.UI.Modules.Home.csproj", "{7B658090-B4F3-4E7F-A65F-2D8AAB328D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Desktop.Tests", "CapsCollection.Desktop.Tests\CapsCollection.Desktop.Tests.csproj", "{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Silverlight.Settings", "CapsCollection.Silverlight.Settings\CapsCollection.Silverlight.Settings.csproj", "{B3121D0B-7ED1-4944-AEE9-9783F1A8BD7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Common.Settings", "CapsCollection.Common.Settings\CapsCollection.Common.Settings.csproj", "{8100B1D2-F1C1-44F2-8BA1-A93563E817A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Common", "CapsCollection.Common\CapsCollection.Common.csproj", "{0FEAB26E-DADE-4370-8916-134FA704BFAD}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CapsCollection.Web.ServiceHost.Azure", "CapsCollection.Web.ServiceHost.Azure\CapsCollection.Web.ServiceHost.Azure.ccproj", "{C174C556-AF44-4D9E-95E1-374F3A31A4C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{306BC575-80A9-46BF-A56C-36E48696E59E}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1F027D02-D728-411B-9C6B-D36E99BA511B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{6C37DAE9-5B6F-4449-AD51-B2DA8EE42464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Web.Tests", "CapsCollection.Web.Tests\CapsCollection.Web.Tests.csproj", "{B846D350-2D72-465D-9519-20BCBAC2B475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapsCollection.Business.Tests", "CapsCollection.Business.Tests\CapsCollection.Business.Tests.csproj", "{4A13A0E7-6908-454C-B9F1-D42B966500D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69D9E32B-4391-4305-A180-F1FC6639CAC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D9E32B-4391-4305-A180-F1FC6639CAC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D9E32B-4391-4305-A180-F1FC6639CAC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D9E32B-4391-4305-A180-F1FC6639CAC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165D303C-62BB-4A73-90E1-D3B86D1805F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165D303C-62BB-4A73-90E1-D3B86D1805F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165D303C-62BB-4A73-90E1-D3B86D1805F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165D303C-62BB-4A73-90E1-D3B86D1805F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA3505E-FF25-4EDF-BBB3-0714C996E57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA3505E-FF25-4EDF-BBB3-0714C996E57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA3505E-FF25-4EDF-BBB3-0714C996E57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA3505E-FF25-4EDF-BBB3-0714C996E57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D122597E-F8E1-410E-866B-35B84B42DB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D122597E-F8E1-410E-866B-35B84B42DB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D122597E-F8E1-410E-866B-35B84B42DB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D122597E-F8E1-410E-866B-35B84B42DB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A486B4CB-719C-413E-A416-FCEF84E5886D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A486B4CB-719C-413E-A416-FCEF84E5886D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A486B4CB-719C-413E-A416-FCEF84E5886D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A486B4CB-719C-413E-A416-FCEF84E5886D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CB5D90-72A4-4744-BC23-7DA5E9438827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CB5D90-72A4-4744-BC23-7DA5E9438827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CB5D90-72A4-4744-BC23-7DA5E9438827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CB5D90-72A4-4744-BC23-7DA5E9438827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D2A4B2E-89E1-4819-A2CF-DB329DC13CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D2A4B2E-89E1-4819-A2CF-DB329DC13CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D2A4B2E-89E1-4819-A2CF-DB329DC13CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D2A4B2E-89E1-4819-A2CF-DB329DC13CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA64CD5-06ED-4187-8888-B33A3D42656A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA64CD5-06ED-4187-8888-B33A3D42656A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA64CD5-06ED-4187-8888-B33A3D42656A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA64CD5-06ED-4187-8888-B33A3D42656A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23424FB-5EA4-4CC6-A719-B3477430DED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23424FB-5EA4-4CC6-A719-B3477430DED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23424FB-5EA4-4CC6-A719-B3477430DED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23424FB-5EA4-4CC6-A719-B3477430DED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279D8412-C89E-4F21-A660-82138F230D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279D8412-C89E-4F21-A660-82138F230D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279D8412-C89E-4F21-A660-82138F230D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279D8412-C89E-4F21-A660-82138F230D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB811C74-7B2E-49C8-9D40-0EDEDF6C6731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB811C74-7B2E-49C8-9D40-0EDEDF6C6731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB811C74-7B2E-49C8-9D40-0EDEDF6C6731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB811C74-7B2E-49C8-9D40-0EDEDF6C6731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E48ECD-B848-4181-B6FE-5A5A569DEAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E48ECD-B848-4181-B6FE-5A5A569DEAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E48ECD-B848-4181-B6FE-5A5A569DEAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E48ECD-B848-4181-B6FE-5A5A569DEAC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{880E57E4-5910-474B-9FCD-27EE663B8C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880E57E4-5910-474B-9FCD-27EE663B8C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880E57E4-5910-474B-9FCD-27EE663B8C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880E57E4-5910-474B-9FCD-27EE663B8C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D990861-0BF3-4080-A305-2FEBEBC96E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D990861-0BF3-4080-A305-2FEBEBC96E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D990861-0BF3-4080-A305-2FEBEBC96E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D990861-0BF3-4080-A305-2FEBEBC96E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE1A62E4-F5D2-4908-BE96-09E5F03CB3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE1A62E4-F5D2-4908-BE96-09E5F03CB3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE1A62E4-F5D2-4908-BE96-09E5F03CB3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE1A62E4-F5D2-4908-BE96-09E5F03CB3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E4F625-3269-418C-A46A-DD407944D70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E4F625-3269-418C-A46A-DD407944D70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E4F625-3269-418C-A46A-DD407944D70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E4F625-3269-418C-A46A-DD407944D70F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FE1CC7-AD99-4708-83AF-5D62F2C804CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FE1CC7-AD99-4708-83AF-5D62F2C804CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FE1CC7-AD99-4708-83AF-5D62F2C804CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FE1CC7-AD99-4708-83AF-5D62F2C804CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B658090-B4F3-4E7F-A65F-2D8AAB328D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B658090-B4F3-4E7F-A65F-2D8AAB328D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B658090-B4F3-4E7F-A65F-2D8AAB328D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B658090-B4F3-4E7F-A65F-2D8AAB328D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3121D0B-7ED1-4944-AEE9-9783F1A8BD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3121D0B-7ED1-4944-AEE9-9783F1A8BD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3121D0B-7ED1-4944-AEE9-9783F1A8BD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3121D0B-7ED1-4944-AEE9-9783F1A8BD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8100B1D2-F1C1-44F2-8BA1-A93563E817A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8100B1D2-F1C1-44F2-8BA1-A93563E817A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8100B1D2-F1C1-44F2-8BA1-A93563E817A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8100B1D2-F1C1-44F2-8BA1-A93563E817A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEAB26E-DADE-4370-8916-134FA704BFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEAB26E-DADE-4370-8916-134FA704BFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEAB26E-DADE-4370-8916-134FA704BFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEAB26E-DADE-4370-8916-134FA704BFAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C174C556-AF44-4D9E-95E1-374F3A31A4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C174C556-AF44-4D9E-95E1-374F3A31A4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C174C556-AF44-4D9E-95E1-374F3A31A4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C174C556-AF44-4D9E-95E1-374F3A31A4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B846D350-2D72-465D-9519-20BCBAC2B475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B846D350-2D72-465D-9519-20BCBAC2B475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B846D350-2D72-465D-9519-20BCBAC2B475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B846D350-2D72-465D-9519-20BCBAC2B475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A13A0E7-6908-454C-B9F1-D42B966500D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A13A0E7-6908-454C-B9F1-D42B966500D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A13A0E7-6908-454C-B9F1-D42B966500D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A13A0E7-6908-454C-B9F1-D42B966500D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69D9E32B-4391-4305-A180-F1FC6639CAC7} = {6C37DAE9-5B6F-4449-AD51-B2DA8EE42464}
+		{165D303C-62BB-4A73-90E1-D3B86D1805F6} = {6C37DAE9-5B6F-4449-AD51-B2DA8EE42464}
+		{1FA3505E-FF25-4EDF-BBB3-0714C996E57F} = {838C2708-F855-4545-921C-61A96FB86666}
+		{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A} = {838C2708-F855-4545-921C-61A96FB86666}
+		{D122597E-F8E1-410E-866B-35B84B42DB1F} = {838C2708-F855-4545-921C-61A96FB86666}
+		{A486B4CB-719C-413E-A416-FCEF84E5886D} = {838C2708-F855-4545-921C-61A96FB86666}
+		{43CB5D90-72A4-4744-BC23-7DA5E9438827} = {838C2708-F855-4545-921C-61A96FB86666}
+		{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1} = {838C2708-F855-4545-921C-61A96FB86666}
+		{6D2A4B2E-89E1-4819-A2CF-DB329DC13CA6} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{8BA64CD5-06ED-4187-8888-B33A3D42656A} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{A23424FB-5EA4-4CC6-A719-B3477430DED5} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{E3B40B74-5FF0-4027-862F-BB65BE2EB101} = {13D9C5B2-6CF0-4315-90F1-C1AEF0AB3D28}
+		{279D8412-C89E-4F21-A660-82138F230D1D} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{DB811C74-7B2E-49C8-9D40-0EDEDF6C6731} = {838C2708-F855-4545-921C-61A96FB86666}
+		{42E48ECD-B848-4181-B6FE-5A5A569DEAC9} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{880E57E4-5910-474B-9FCD-27EE663B8C13} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{3D990861-0BF3-4080-A305-2FEBEBC96E92} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{BE1A62E4-F5D2-4908-BE96-09E5F03CB3BE} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{A9E4F625-3269-418C-A46A-DD407944D70F} = {13D9C5B2-6CF0-4315-90F1-C1AEF0AB3D28}
+		{A2FE1CC7-AD99-4708-83AF-5D62F2C804CF} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{7B658090-B4F3-4E7F-A65F-2D8AAB328D60} = {838C2708-F855-4545-921C-61A96FB86666}
+		{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED} = {1F027D02-D728-411B-9C6B-D36E99BA511B}
+		{B3121D0B-7ED1-4944-AEE9-9783F1A8BD7E} = {8869BFA9-CE4D-4E5D-9402-B2F66F68F26F}
+		{8100B1D2-F1C1-44F2-8BA1-A93563E817A2} = {6C37DAE9-5B6F-4449-AD51-B2DA8EE42464}
+		{0FEAB26E-DADE-4370-8916-134FA704BFAD} = {6C37DAE9-5B6F-4449-AD51-B2DA8EE42464}
+		{C174C556-AF44-4D9E-95E1-374F3A31A4C6} = {13D9C5B2-6CF0-4315-90F1-C1AEF0AB3D28}
+		{B846D350-2D72-465D-9519-20BCBAC2B475} = {1F027D02-D728-411B-9C6B-D36E99BA511B}
+		{4A13A0E7-6908-454C-B9F1-D42B966500D4} = {1F027D02-D728-411B-9C6B-D36E99BA511B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 29
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://filimonovga.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CapsCollection.Business\\CapsCollection.Business.csproj
+		SccProjectTopLevelParentUniqueName1 = CapsCollection.sln
+		SccProjectName1 = CapsCollection.Business
+		SccLocalPath1 = CapsCollection.Business
+		SccProjectUniqueName2 = CapsCollection.Data\\CapsCollection.Data.csproj
+		SccProjectTopLevelParentUniqueName2 = CapsCollection.sln
+		SccProjectName2 = CapsCollection.Data
+		SccLocalPath2 = CapsCollection.Data
+		SccProjectUniqueName3 = CapsCollection.Desktop.Infrastructure\\CapsCollection.Desktop.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName3 = CapsCollection.sln
+		SccProjectName3 = CapsCollection.Desktop.Infrastructure
+		SccLocalPath3 = CapsCollection.Desktop.Infrastructure
+		SccProjectUniqueName4 = CapsCollection.Desktop.UI.Modules.BulkLoad\\CapsCollection.Desktop.UI.Modules.BulkLoad.csproj
+		SccProjectTopLevelParentUniqueName4 = CapsCollection.sln
+		SccProjectName4 = CapsCollection.Desktop.UI.Modules.BulkLoad
+		SccLocalPath4 = CapsCollection.Desktop.UI.Modules.BulkLoad
+		SccProjectUniqueName5 = CapsCollection.Desktop.UI.Modules.BulkUpdate\\CapsCollection.Desktop.UI.Modules.BulkUpdate.csproj
+		SccProjectTopLevelParentUniqueName5 = CapsCollection.sln
+		SccProjectName5 = CapsCollection.Desktop.UI.Modules.BulkUpdate
+		SccLocalPath5 = CapsCollection.Desktop.UI.Modules.BulkUpdate
+		SccProjectUniqueName6 = CapsCollection.Desktop.UI.Modules.Services\\CapsCollection.Desktop.UI.Modules.Services.csproj
+		SccProjectTopLevelParentUniqueName6 = CapsCollection.sln
+		SccProjectName6 = CapsCollection.Desktop.UI.Modules.Services
+		SccLocalPath6 = CapsCollection.Desktop.UI.Modules.Services
+		SccProjectUniqueName7 = CapsCollection.Desktop.UI.Modules.Settings\\CapsCollection.Desktop.UI.Modules.Settings.csproj
+		SccProjectTopLevelParentUniqueName7 = CapsCollection.sln
+		SccProjectName7 = CapsCollection.Desktop.UI.Modules.Settings
+		SccLocalPath7 = CapsCollection.Desktop.UI.Modules.Settings
+		SccProjectUniqueName8 = CapsCollection.Desktop.UI.Modules.StatusBar\\CapsCollection.Desktop.UI.Modules.StatusBar.csproj
+		SccProjectTopLevelParentUniqueName8 = CapsCollection.sln
+		SccProjectName8 = CapsCollection.Desktop.UI.Modules.StatusBar
+		SccLocalPath8 = CapsCollection.Desktop.UI.Modules.StatusBar
+		SccProjectUniqueName9 = CapsCollection.Desktop.UI.Shell\\CapsCollection.Desktop.UI.Shell.csproj
+		SccProjectTopLevelParentUniqueName9 = CapsCollection.sln
+		SccProjectName9 = CapsCollection.Desktop.UI.Shell
+		SccLocalPath9 = CapsCollection.Desktop.UI.Shell
+		SccProjectUniqueName10 = CapsCollection.Silverlight.Infrastructure\\CapsCollection.Silverlight.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName10 = CapsCollection.sln
+		SccProjectName10 = CapsCollection.Silverlight.Infrastructure
+		SccLocalPath10 = CapsCollection.Silverlight.Infrastructure
+		SccProjectUniqueName11 = CapsCollection.Silverlight.ServiceAgents\\CapsCollection.Silverlight.ServiceAgents.csproj
+		SccProjectTopLevelParentUniqueName11 = CapsCollection.sln
+		SccProjectName11 = CapsCollection.Silverlight.ServiceAgents
+		SccLocalPath11 = CapsCollection.Silverlight.ServiceAgents
+		SccProjectUniqueName12 = CapsCollection.Silverlight.UI.Modules.Authentication\\CapsCollection.Silverlight.UI.Modules.Authentication.csproj
+		SccProjectTopLevelParentUniqueName12 = CapsCollection.sln
+		SccProjectName12 = CapsCollection.Silverlight.UI.Modules.Authentication
+		SccLocalPath12 = CapsCollection.Silverlight.UI.Modules.Authentication
+		SccProjectUniqueName13 = CapsCollection.Silverlight.UI.Modules.BeerStyle\\CapsCollection.Silverlight.UI.Modules.BeerStyle.csproj
+		SccProjectTopLevelParentUniqueName13 = CapsCollection.sln
+		SccProjectName13 = CapsCollection.Silverlight.UI.Modules.BeerStyle
+		SccLocalPath13 = CapsCollection.Silverlight.UI.Modules.BeerStyle
+		SccProjectUniqueName14 = CapsCollection.Silverlight.UI.Modules.Brewery\\CapsCollection.Silverlight.UI.Modules.Brewery.csproj
+		SccProjectTopLevelParentUniqueName14 = CapsCollection.sln
+		SccProjectName14 = CapsCollection.Silverlight.UI.Modules.Brewery
+		SccLocalPath14 = CapsCollection.Silverlight.UI.Modules.Brewery
+		SccProjectUniqueName15 = CapsCollection.Silverlight.UI.Modules.Collection\\CapsCollection.Silverlight.UI.Modules.Collection.csproj
+		SccProjectTopLevelParentUniqueName15 = CapsCollection.sln
+		SccProjectName15 = CapsCollection.Silverlight.UI.Modules.Collection
+		SccLocalPath15 = CapsCollection.Silverlight.UI.Modules.Collection
+		SccProjectUniqueName16 = CapsCollection.Silverlight.UI.Modules.Geography\\CapsCollection.Silverlight.UI.Modules.Geography.csproj
+		SccProjectTopLevelParentUniqueName16 = CapsCollection.sln
+		SccProjectName16 = CapsCollection.Silverlight.UI.Modules.Geography
+		SccLocalPath16 = CapsCollection.Silverlight.UI.Modules.Geography
+		SccProjectUniqueName17 = CapsCollection.Silverlight.UI.Modules.Services\\CapsCollection.Silverlight.UI.Modules.Services.csproj
+		SccProjectTopLevelParentUniqueName17 = CapsCollection.sln
+		SccProjectName17 = CapsCollection.Silverlight.UI.Modules.Services
+		SccLocalPath17 = CapsCollection.Silverlight.UI.Modules.Services
+		SccProjectUniqueName18 = CapsCollection.Silverlight.UI.Shell\\CapsCollection.Silverlight.UI.Shell.csproj
+		SccProjectTopLevelParentUniqueName18 = CapsCollection.sln
+		SccProjectName18 = CapsCollection.Silverlight.UI.Shell
+		SccLocalPath18 = CapsCollection.Silverlight.UI.Shell
+		SccProjectUniqueName19 = CapsCollection.Web.ServiceHost\\CapsCollection.Web.ServiceHost.csproj
+		SccProjectTopLevelParentUniqueName19 = CapsCollection.sln
+		SccProjectName19 = CapsCollection.Web.ServiceHost
+		SccLocalPath19 = CapsCollection.Web.ServiceHost
+		SccProjectUniqueName20 = CapsCollection.Web.UI\\CapsCollection.Web.UI.csproj
+		SccProjectTopLevelParentUniqueName20 = CapsCollection.sln
+		SccProjectName20 = CapsCollection.Web.UI
+		SccLocalPath20 = CapsCollection.Web.UI
+		SccProjectUniqueName21 = CapsCollection.Desktop.UI.Modules.Home\\CapsCollection.Desktop.UI.Modules.Home.csproj
+		SccProjectTopLevelParentUniqueName21 = CapsCollection.sln
+		SccProjectName21 = CapsCollection.Desktop.UI.Modules.Home
+		SccLocalPath21 = CapsCollection.Desktop.UI.Modules.Home
+		SccProjectUniqueName22 = CapsCollection.Desktop.Tests\\CapsCollection.Desktop.Tests.csproj
+		SccProjectTopLevelParentUniqueName22 = CapsCollection.sln
+		SccProjectName22 = CapsCollection.Desktop.Tests
+		SccLocalPath22 = CapsCollection.Desktop.Tests
+		SccProjectUniqueName23 = CapsCollection.Silverlight.Settings\\CapsCollection.Silverlight.Settings.csproj
+		SccProjectTopLevelParentUniqueName23 = CapsCollection.sln
+		SccProjectName23 = CapsCollection.Silverlight.Settings
+		SccLocalPath23 = CapsCollection.Silverlight.Settings
+		SccProjectUniqueName24 = CapsCollection.Common.Settings\\CapsCollection.Common.Settings.csproj
+		SccProjectTopLevelParentUniqueName24 = CapsCollection.sln
+		SccProjectName24 = CapsCollection.Common.Settings
+		SccLocalPath24 = CapsCollection.Common.Settings
+		SccProjectUniqueName25 = CapsCollection.Common\\CapsCollection.Common.csproj
+		SccProjectTopLevelParentUniqueName25 = CapsCollection.sln
+		SccProjectName25 = CapsCollection.Common
+		SccLocalPath25 = CapsCollection.Common
+		SccProjectUniqueName26 = CapsCollection.Web.ServiceHost.Azure\\CapsCollection.Web.ServiceHost.Azure.ccproj
+		SccProjectTopLevelParentUniqueName26 = CapsCollection.sln
+		SccProjectName26 = CapsCollection.Web.ServiceHost.Azure
+		SccLocalPath26 = CapsCollection.Web.ServiceHost.Azure
+		SccProjectUniqueName27 = CapsCollection.Web.Tests\\CapsCollection.Web.Tests.csproj
+		SccProjectTopLevelParentUniqueName27 = CapsCollection.sln
+		SccProjectName27 = CapsCollection.Web.Tests
+		SccLocalPath27 = CapsCollection.Web.Tests
+		SccProjectUniqueName28 = CapsCollection.Business.Tests\\CapsCollection.Business.Tests.csproj
+		SccProjectTopLevelParentUniqueName28 = CapsCollection.sln
+		SccProjectName28 = CapsCollection.Business.Tests
+		SccLocalPath28 = CapsCollection.Business.Tests
+	EndGlobalSection
+EndGlobal

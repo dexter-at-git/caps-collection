@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="CapsCollection.Desktop.UI.Modules.StatusBar.Views.StatusBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:CapsCollection.Desktop.Infrastructure.Converters;assembly=CapsCollection.Desktop.Infrastructure"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+    </UserControl.Resources>
+
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock  Text="{Binding Message}"/>
+
+                    <StackPanel Orientation="Horizontal" Visibility="{Binding IsLoading, Converter={StaticResource VisibilityConverter}}">
+                        <ProgressBar Margin="5,0,5,0" Minimum="0" Maximum="{Binding MaximumProgress}" Value="{Binding CurrentProgress, Mode=OneWay}" Width="200" Height="16" />
+
+                        <TextBlock HorizontalAlignment="Center">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="({0} of {1})">
+                                    <Binding Path="CurrentProgress" />
+                                    <Binding Path="MaximumProgress" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </DockPanel>
+</UserControl>

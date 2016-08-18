@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caps Collection</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/angular-busy.css" rel="stylesheet" />
+    <link href="Content/select.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+</head>
+<body ng-app="capsCollectionApp">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Caps Collection</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active"><a ui-sref="collection({})" ui-sref-opts="{reload: true, notify: true, inherit: false}">Collection</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="app/views/admin.html">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-sanitize.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="Scripts/angular-busy.js"></script>
+    <script src="Scripts/select.js"></script>
+
+    <script src="app/capsCollectionApp.js"></script>
+
+    <script src="app/controllers/capsController.js"></script>
+
+    <script src="app/services/capsService.js"></script>
+
+    <script src="app/filters/rawHtml.filter.js"></script>
+    <script src="app/filters/zpad.filter.js"></script>
+    <script src="app/filters/latinize.filter.js"></script>
+    <script src="app/filters/filterMultiple.js"></script>
+
+</body>
+</html>

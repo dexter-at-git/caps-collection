@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BeerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IBeerService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:39410/Services/BeerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:39410/Services/BeerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:39410/Services/BeerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CapsCollection.Business.DTOs" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBeerService_GetBreweriesByCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesByCity" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweriesByCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesByCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweriesByFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesByFilter" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweriesByFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesByFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweries" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBrewery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrewery" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBrewery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_UpdateBrewery_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBrewery" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_UpdateBrewery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBreweryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteBrewery_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBrewery" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteBrewery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBreweryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetAllBeers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBeers" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetAllBeers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBeersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetCountryBeers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryBeers" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetCountryBeers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryBeersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeerByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerByName" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeerByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeer" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_UpdateBeer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeer" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_UpdateBeer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteBeer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeer" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteBeer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweriesByCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesByCountry" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBreweriesByCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBreweriesByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeerStyles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerStyles" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeerStyles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerStylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeerStyle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerStyle" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetBeerStyle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_UpdateBeerStyle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeerStyle" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_UpdateBeerStyle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBeerStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteBeerStyle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeerStyle" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteBeerStyle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBeerStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetCapTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapTypes" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_GetCapTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_ProcessImageFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessImageFiles" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_ProcessImageFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessImageFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteAllFilesFromContainer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllFilesFromContainer" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DeleteAllFilesFromContainer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllFilesFromContainerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DownloadImageFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadImageFile" />
+  </wsdl:message>
+  <wsdl:message name="IBeerService_DownloadImageFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadImageFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBeerService">
+    <wsdl:operation name="GetBreweriesByCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesByCity" message="tns:IBeerService_GetBreweriesByCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesByCityResponse" message="tns:IBeerService_GetBreweriesByCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBreweriesByFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesByFilter" message="tns:IBeerService_GetBreweriesByFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesByFilterResponse" message="tns:IBeerService_GetBreweriesByFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBreweries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBreweries" message="tns:IBeerService_GetBreweries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesResponse" message="tns:IBeerService_GetBreweries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrewery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBrewery" message="tns:IBeerService_GetBrewery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBreweryResponse" message="tns:IBeerService_GetBrewery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBrewery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/UpdateBrewery" message="tns:IBeerService_UpdateBrewery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/UpdateBreweryResponse" message="tns:IBeerService_UpdateBrewery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBrewery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/DeleteBrewery" message="tns:IBeerService_DeleteBrewery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/DeleteBreweryResponse" message="tns:IBeerService_DeleteBrewery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBeers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetAllBeers" message="tns:IBeerService_GetAllBeers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetAllBeersResponse" message="tns:IBeerService_GetAllBeers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryBeers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetCountryBeers" message="tns:IBeerService_GetCountryBeers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetCountryBeersResponse" message="tns:IBeerService_GetCountryBeers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBeerByName" message="tns:IBeerService_GetBeerByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBeerByNameResponse" message="tns:IBeerService_GetBeerByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBeer" message="tns:IBeerService_GetBeer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBeerResponse" message="tns:IBeerService_GetBeer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/UpdateBeer" message="tns:IBeerService_UpdateBeer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/UpdateBeerResponse" message="tns:IBeerService_UpdateBeer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/DeleteBeer" message="tns:IBeerService_DeleteBeer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/DeleteBeerResponse" message="tns:IBeerService_DeleteBeer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBreweriesByCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesByCountry" message="tns:IBeerService_GetBreweriesByCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBreweriesByCountryResponse" message="tns:IBeerService_GetBreweriesByCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerStyles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBeerStyles" message="tns:IBeerService_GetBeerStyles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBeerStylesResponse" message="tns:IBeerService_GetBeerStyles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerStyle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetBeerStyle" message="tns:IBeerService_GetBeerStyle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetBeerStyleResponse" message="tns:IBeerService_GetBeerStyle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeerStyle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/UpdateBeerStyle" message="tns:IBeerService_UpdateBeerStyle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/UpdateBeerStyleResponse" message="tns:IBeerService_UpdateBeerStyle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeerStyle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/DeleteBeerStyle" message="tns:IBeerService_DeleteBeerStyle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/DeleteBeerStyleResponse" message="tns:IBeerService_DeleteBeerStyle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCapTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/GetCapTypes" message="tns:IBeerService_GetCapTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/GetCapTypesResponse" message="tns:IBeerService_GetCapTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessImageFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/ProcessImageFiles" message="tns:IBeerService_ProcessImageFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/ProcessImageFilesResponse" message="tns:IBeerService_ProcessImageFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllFilesFromContainer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/DeleteAllFilesFromContainer" message="tns:IBeerService_DeleteAllFilesFromContainer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/DeleteAllFilesFromContainerResponse" message="tns:IBeerService_DeleteAllFilesFromContainer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadImageFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBeerService/DownloadImageFile" message="tns:IBeerService_DownloadImageFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBeerService/DownloadImageFileResponse" message="tns:IBeerService_DownloadImageFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBeerService" type="tns:IBeerService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IBeerService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBreweriesByCity">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBreweriesByCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBreweriesByFilter">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBreweriesByFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBreweries">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBreweries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrewery">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBrewery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBrewery">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/UpdateBrewery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBrewery">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/DeleteBrewery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBeers">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetAllBeers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryBeers">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetCountryBeers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerByName">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBeerByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeer">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBeer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeer">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/UpdateBeer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeer">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/DeleteBeer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBreweriesByCountry">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBreweriesByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerStyles">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBeerStyles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerStyle">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetBeerStyle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBeerStyle">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/UpdateBeerStyle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBeerStyle">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/DeleteBeerStyle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCapTypes">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/GetCapTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessImageFiles">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/ProcessImageFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllFilesFromContainer">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/DeleteAllFilesFromContainer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadImageFile">
+      <soap:operation soapAction="http://tempuri.org/IBeerService/DownloadImageFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BeerService">
+    <wsdl:port name="BasicHttpBinding_IBeerService" binding="tns:BasicHttpBinding_IBeerService">
+      <soap:address location="https://localhost:44300/Services/BeerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ECDF628-DFEC-4333-BD06-6C7844CDB1ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapsCollection.Desktop.Tests</RootNamespace>
+    <AssemblyName>CapsCollection.Desktop.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism">
+      <HintPath>..\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="BulkUpdateModule\BeerUpdateViewModelTest.cs" />
+    <Compile Include="BulkUpdateModule\BeerUpdateViewModelValidatorTests.cs" />
+    <Compile Include="BulkUpdateModule\BulkUpdateViewModelTests.cs" />
+    <Compile Include="BulkLoadModule\BeerLoadViewModelValidatorTests.cs" />
+    <Compile Include="BulkLoadModule\BeerLoadViewModelTest.cs" />
+    <Compile Include="BulkLoadModule\BulkLoadViewModelTests.cs" />
+    <Compile Include="HomeModule\ImageTypeAgregatorTests.cs" />
+    <Compile Include="HomeModule\HomeViewModelTests.cs" />
+    <Compile Include="ServicesModule\ThumbnailServiceTests.cs" />
+    <Compile Include="ServicesModule\FileRepositoryTests.cs" />
+    <Compile Include="StatusBarModule\StatusBarViewModelTests.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="HomeModule\HomeViewModelValidatorTests.cs" />
+    <Compile Include="ServicesModule\EventProcessingServiceTest.cs" />
+    <Compile Include="ServicesModule\ImageProcessingServiceTests.cs" />
+    <Compile Include="TestSynchronizationContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapsCollection.Business\CapsCollection.Business.csproj">
+      <Project>{165D303C-62BB-4A73-90E1-D3B86D1805F6}</Project>
+      <Name>CapsCollection.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Common.Settings\CapsCollection.Common.Settings.csproj">
+      <Project>{8100B1D2-F1C1-44F2-8BA1-A93563E817A2}</Project>
+      <Name>CapsCollection.Common.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Desktop.Infrastructure\CapsCollection.Desktop.Infrastructure.csproj">
+      <Project>{5CF5DE00-E59F-4A7A-B681-E4FC7046CF7A}</Project>
+      <Name>CapsCollection.Desktop.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Desktop.UI.Modules.BulkLoad\CapsCollection.Desktop.UI.Modules.BulkLoad.csproj">
+      <Project>{D122597E-F8E1-410E-866B-35B84B42DB1F}</Project>
+      <Name>CapsCollection.Desktop.UI.Modules.BulkLoad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Desktop.UI.Modules.BulkUpdate\CapsCollection.Desktop.UI.Modules.BulkUpdate.csproj">
+      <Project>{8CF87F0A-EDDA-4B5E-AAE9-37864548BAF1}</Project>
+      <Name>CapsCollection.Desktop.UI.Modules.BulkUpdate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Desktop.UI.Modules.Home\CapsCollection.Desktop.UI.Modules.Home.csproj">
+      <Project>{7B658090-B4F3-4E7F-A65F-2D8AAB328D60}</Project>
+      <Name>CapsCollection.Desktop.UI.Modules.Home</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Desktop.UI.Modules.Services\CapsCollection.Desktop.UI.Modules.Services.csproj">
+      <Project>{A486B4CB-719C-413E-A416-FCEF84E5886D}</Project>
+      <Name>CapsCollection.Desktop.UI.Modules.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Desktop.UI.Modules.StatusBar\CapsCollection.Desktop.UI.Modules.StatusBar.csproj">
+      <Project>{43CB5D90-72A4-4744-BC23-7DA5E9438827}</Project>
+      <Name>CapsCollection.Desktop.UI.Modules.StatusBar</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\Bottles\bottle_01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Bottles\bottle_02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Bottles\bottle_03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Bottles\bottle_04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Bottles\bottle_05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Caps\cap_01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Caps\cap_02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Caps\cap_03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Caps\cap_04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Caps\cap_05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Labels\label_01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Labels\label_02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Labels\label_03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Labels\label_04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Labels\label_05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

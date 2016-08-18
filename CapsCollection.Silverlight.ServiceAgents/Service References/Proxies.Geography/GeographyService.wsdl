@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GeographyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IGeographyService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:39410/Services/GeographyService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:39410/Services/GeographyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:39410/Services/GeographyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CapsCollection.Business.DTOs" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGeographyService_GetContinents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContinents" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetContinents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContinentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetAllCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountries" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetAllCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCountriesByContinent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesByContinent" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCountriesByContinent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesByContinentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_UpdateCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountry" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_UpdateCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_DeleteCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCountry" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_DeleteCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetAllRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegions" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetAllRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetRegionsByCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByCountry" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetRegionsByCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegion" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_UpdateRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRegion" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_UpdateRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_DeleteRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRegion" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_DeleteRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetAlCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlCities" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetAlCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCitiesByRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesByRegion" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCitiesByRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesByRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCity" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_UpdateCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCity" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_UpdateCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_DeleteCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCity" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_DeleteCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetBeerCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerCountries" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetBeerCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBeerCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetContinentsWithBreweries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContinentsWithBreweries" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetContinentsWithBreweries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContinentsWithBreweriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetContinentCountriesWithBreweries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContinentCountriesWithBreweries" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetContinentCountriesWithBreweries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContinentCountriesWithBreweriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCountriesWithBreweries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesWithBreweries" />
+  </wsdl:message>
+  <wsdl:message name="IGeographyService_GetCountriesWithBreweries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesWithBreweriesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGeographyService">
+    <wsdl:operation name="GetContinents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetContinents" message="tns:IGeographyService_GetContinents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetContinentsResponse" message="tns:IGeographyService_GetContinents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetAllCountries" message="tns:IGeographyService_GetAllCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetAllCountriesResponse" message="tns:IGeographyService_GetAllCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesByContinent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetCountriesByContinent" message="tns:IGeographyService_GetCountriesByContinent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetCountriesByContinentResponse" message="tns:IGeographyService_GetCountriesByContinent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetCountry" message="tns:IGeographyService_GetCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetCountryResponse" message="tns:IGeographyService_GetCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/UpdateCountry" message="tns:IGeographyService_UpdateCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/UpdateCountryResponse" message="tns:IGeographyService_UpdateCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/DeleteCountry" message="tns:IGeographyService_DeleteCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/DeleteCountryResponse" message="tns:IGeographyService_DeleteCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetAllRegions" message="tns:IGeographyService_GetAllRegions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetAllRegionsResponse" message="tns:IGeographyService_GetAllRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsByCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetRegionsByCountry" message="tns:IGeographyService_GetRegionsByCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetRegionsByCountryResponse" message="tns:IGeographyService_GetRegionsByCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetRegion" message="tns:IGeographyService_GetRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetRegionResponse" message="tns:IGeographyService_GetRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/UpdateRegion" message="tns:IGeographyService_UpdateRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/UpdateRegionResponse" message="tns:IGeographyService_UpdateRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/DeleteRegion" message="tns:IGeographyService_DeleteRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/DeleteRegionResponse" message="tns:IGeographyService_DeleteRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetAlCities" message="tns:IGeographyService_GetAlCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetAlCitiesResponse" message="tns:IGeographyService_GetAlCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetCitiesByRegion" message="tns:IGeographyService_GetCitiesByRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetCitiesByRegionResponse" message="tns:IGeographyService_GetCitiesByRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetCity" message="tns:IGeographyService_GetCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetCityResponse" message="tns:IGeographyService_GetCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/UpdateCity" message="tns:IGeographyService_UpdateCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/UpdateCityResponse" message="tns:IGeographyService_UpdateCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/DeleteCity" message="tns:IGeographyService_DeleteCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/DeleteCityResponse" message="tns:IGeographyService_DeleteCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetBeerCountries" message="tns:IGeographyService_GetBeerCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetBeerCountriesResponse" message="tns:IGeographyService_GetBeerCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContinentsWithBreweries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetContinentsWithBreweries" message="tns:IGeographyService_GetContinentsWithBreweries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetContinentsWithBreweriesResponse" message="tns:IGeographyService_GetContinentsWithBreweries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContinentCountriesWithBreweries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetContinentCountriesWithBreweries" message="tns:IGeographyService_GetContinentCountriesWithBreweries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetContinentCountriesWithBreweriesResponse" message="tns:IGeographyService_GetContinentCountriesWithBreweries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesWithBreweries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeographyService/GetCountriesWithBreweries" message="tns:IGeographyService_GetCountriesWithBreweries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeographyService/GetCountriesWithBreweriesResponse" message="tns:IGeographyService_GetCountriesWithBreweries_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGeographyService" type="tns:IGeographyService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IGeographyService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetContinents">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetContinents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountries">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetAllCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesByContinent">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetCountriesByContinent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/UpdateCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/DeleteCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegions">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetAllRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsByCountry">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetRegionsByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegion">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegion">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/UpdateRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegion">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/DeleteRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlCities">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetAlCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByRegion">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetCitiesByRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCity">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/UpdateCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCity">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/DeleteCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeerCountries">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetBeerCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContinentsWithBreweries">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetContinentsWithBreweries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContinentCountriesWithBreweries">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetContinentCountriesWithBreweries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesWithBreweries">
+      <soap:operation soapAction="http://tempuri.org/IGeographyService/GetCountriesWithBreweries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GeographyService">
+    <wsdl:port name="BasicHttpBinding_IGeographyService" binding="tns:BasicHttpBinding_IGeographyService">
+      <soap:address location="https://localhost:44300/Services/GeographyService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

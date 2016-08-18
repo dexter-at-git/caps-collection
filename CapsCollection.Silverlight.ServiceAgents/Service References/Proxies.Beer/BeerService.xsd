@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CapsCollection.Business.DTOs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CapsCollection.Business.DTOs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBreweryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BreweryDto" nillable="true" type="tns:BreweryDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBreweryDto" nillable="true" type="tns:ArrayOfBreweryDto" />
+  <xs:complexType name="BreweryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brewery" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BreweryId" type="xs:int" />
+      <xs:element minOccurs="0" name="CityId" type="xs:int" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContinentId" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Site" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BreweryDto" nillable="true" type="tns:BreweryDto" />
+  <xs:complexType name="ArrayOfBeerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BeerDto" nillable="true" type="tns:BeerDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBeerDto" nillable="true" type="tns:ArrayOfBeerDto" />
+  <xs:complexType name="BeerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeerComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeerId" type="xs:int" />
+      <xs:element minOccurs="0" name="BeerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeerNameNoDiacritics" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeerPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BeerSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeerStyleId" type="xs:int" />
+      <xs:element minOccurs="0" name="BeerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeerYear" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BreweryId" type="xs:int" />
+      <xs:element minOccurs="0" name="CapTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ContinentId" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryAlpha3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EnglishBeerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BeerDto" nillable="true" type="tns:BeerDto" />
+  <xs:complexType name="ArrayOfBeerStyleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BeerStyleDto" nillable="true" type="tns:BeerStyleDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBeerStyleDto" nillable="true" type="tns:ArrayOfBeerStyleDto" />
+  <xs:complexType name="BeerStyleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeerStyleId" type="xs:int" />
+      <xs:element minOccurs="0" name="BeerStyleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BeerStyleDto" nillable="true" type="tns:BeerStyleDto" />
+  <xs:complexType name="ArrayOfCapTypeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CapTypeDto" nillable="true" type="tns:CapTypeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCapTypeDto" nillable="true" type="tns:ArrayOfCapTypeDto" />
+  <xs:complexType name="CapTypeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CapTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="CapTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CapTypeDto" nillable="true" type="tns:CapTypeDto" />
+  <xs:complexType name="ArrayOfImageFileOperationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageFileOperationDto" nillable="true" type="tns:ImageFileOperationDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageFileOperationDto" nillable="true" type="tns:ArrayOfImageFileOperationDto" />
+  <xs:complexType name="ImageFileOperationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Container" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNameTemplate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileOperation" type="tns:FileOperation" />
+      <xs:element minOccurs="0" name="ImageBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="OldFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentContainer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceFileFullName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageFileOperationDto" nillable="true" type="tns:ImageFileOperationDto" />
+  <xs:simpleType name="FileOperation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Save" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Update" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FileOperation" nillable="true" type="tns:FileOperation" />
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="873e3cdc-5714-457b-9da8-184dbbeb8c71" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:39410/Services/BeerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BeerService.xsd" MetadataType="Schema" ID="73168252-54c3-4e51-a30a-a544b7e62e62" SourceId="1" SourceUrl="http://localhost:39410/Services/BeerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BeerService.disco" MetadataType="Disco" ID="3f0ad85a-ce6c-4ed8-867b-ce46c7189f15" SourceId="1" SourceUrl="http://localhost:39410/Services/BeerService.svc?disco" />
+    <MetadataFile FileName="BeerService3.xsd" MetadataType="Schema" ID="6741644b-5bf0-4fab-9d03-af0f006abd37" SourceId="1" SourceUrl="http://localhost:39410/Services/BeerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BeerService.wsdl" MetadataType="Wsdl" ID="efc59b42-cefa-4678-a11c-a47a24091624" SourceId="1" SourceUrl="http://localhost:39410/Services/BeerService.svc?wsdl" />
+    <MetadataFile FileName="BeerService1.xsd" MetadataType="Schema" ID="6cac64c4-bc3c-484f-8a22-c79770e6000c" SourceId="1" SourceUrl="http://localhost:39410/Services/BeerService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

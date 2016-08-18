@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="CapsCollection.Silverlight.UI.Shell.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+    xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
+    xmlns:infBehaviors="clr-namespace:CapsCollection.Silverlight.Infrastructure.Behaviors;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:customnav="clr-namespace:CapsCollection.Silverlight.UI.Shell.Navigation"
+    infBehaviors:RegionPopupBehaviors.CreatePopupRegionWithName="PopupRegionContent"
+    infBehaviors:RegionPopupBehaviors.ContainerWindowStyle="{StaticResource PopupStyle}">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border x:Name="LinksBorder" Style="{StaticResource NavLinksBorderStyle}"  Grid.Row="0">
+            <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+                <HyperlinkButton Style="{StaticResource LinkStyle}" NavigateUri="/AuthenticationModule" TargetName="ContentFrame" Content="log in" />
+                <HyperlinkButton Style="{StaticResource LinkStyle}" NavigateUri="/CollectionModule" TargetName="ContentFrame" Content="collection" />
+                <HyperlinkButton Style="{StaticResource LinkStyle}" NavigateUri="/BreweryModule" TargetName="ContentFrame" Content="brewery" />
+                <HyperlinkButton Style="{StaticResource LinkStyle}" NavigateUri="/BeerStyleModule" TargetName="ContentFrame" Content="beer style" />
+                <HyperlinkButton Style="{StaticResource LinkStyle}" NavigateUri="/GeographyModule" TargetName="ContentFrame" Content="geography" />
+                <HyperlinkButton Style="{StaticResource LinkStyle}" TargetName="_self" Content="back to site" x:Name="HomeSiteHyperlink" />
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="BrandingBorder" Style="{StaticResource NavBrandingBorderStyle}" Grid.Row="1">
+            <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource NavBrandingStackPanelStyle}" >
+                <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" Text="Caps 'n Labels" />
+                <ContentControl Style="{StaticResource NavLogoIcon}" Content="A collection of beer caps and labels from around the world" />
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="ContentBorder" Style="{StaticResource NavContentBorderStyle}" Grid.Row="2">
+            <navigation:Frame x:Name="ContentFrame" Style="{StaticResource NavContentFrameStyle}" 
+                              Source="/AuthenticationModule" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                <navigation:Frame.ContentLoader>
+                    <customnav:SingletonContentLoader />
+                </navigation:Frame.ContentLoader>
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="CapsCollection.Silverlight.UI.Shell.Views.AuthenticationModule"/>
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="CapsCollection.Silverlight.UI.Shell.Views.{pageName}"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </Border>
+
+    </Grid>
+
+</UserControl>

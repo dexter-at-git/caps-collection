@@ -1,0 +1,55 @@
+﻿<modularity:ModuleCatalog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:modularity="clr-namespace:Microsoft.Practices.Prism.Modularity;assembly=Microsoft.Practices.Prism"
+                          xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <modularity:ModuleInfoGroup>
+
+        <modularity:ModuleInfo Ref="CapsCollection.Silverlight.UI.Modules.Services.xap" InitializationMode="WhenAvailable"
+                               ModuleName="ServicesModule"
+                               ModuleType="CapsCollection.Silverlight.UI.Modules.Services.ServicesModule, CapsCollection.Silverlight.UI.Modules.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        </modularity:ModuleInfo>
+
+        <modularity:ModuleInfo Ref="CapsCollection.Silverlight.UI.Modules.Authentication.xap" InitializationMode="OnDemand"
+                               ModuleName="AuthenticationModule"
+                               ModuleType="CapsCollection.Silverlight.UI.Modules.Authentication.AuthenticationModule, CapsCollection.Silverlight.UI.Modules.Authentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <modularity:ModuleInfo.DependsOn>
+                <system:String>ServicesModule</system:String>
+            </modularity:ModuleInfo.DependsOn>
+        </modularity:ModuleInfo>
+
+        <modularity:ModuleInfo Ref="CapsCollection.Silverlight.UI.Modules.Collection.xap" InitializationMode="OnDemand"
+                               ModuleName="CollectionModule"
+                               ModuleType="CapsCollection.Silverlight.UI.Modules.Collection.CollectionModule, CapsCollection.Silverlight.UI.Modules.Collection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <modularity:ModuleInfo.DependsOn>
+                <system:String>ServicesModule</system:String>
+            </modularity:ModuleInfo.DependsOn>
+        </modularity:ModuleInfo>
+
+        <modularity:ModuleInfo Ref="CapsCollection.Silverlight.UI.Modules.Brewery.xap" InitializationMode="OnDemand"
+                               ModuleName="BreweryModule"
+                               ModuleType="CapsCollection.Silverlight.UI.Modules.Brewery.BreweryModule, CapsCollection.Silverlight.UI.Modules.Brewery, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <modularity:ModuleInfo.DependsOn>
+                <system:String>ServicesModule</system:String>
+            </modularity:ModuleInfo.DependsOn>
+        </modularity:ModuleInfo>
+
+        <modularity:ModuleInfo Ref="CapsCollection.Silverlight.UI.Modules.Geography.xap" InitializationMode="OnDemand"
+                               ModuleName="GeographyModule"
+                               ModuleType="CapsCollection.Silverlight.UI.Modules.Geography.GeographyModule, CapsCollection.Silverlight.UI.Modules.Geography, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <modularity:ModuleInfo.DependsOn>
+                <system:String>ServicesModule</system:String>
+            </modularity:ModuleInfo.DependsOn>
+        </modularity:ModuleInfo>
+
+        <modularity:ModuleInfo Ref="CapsCollection.Silverlight.UI.Modules.BeerStyle.xap" InitializationMode="OnDemand"
+                               ModuleName="BeerStyleModule"
+                               ModuleType="CapsCollection.Silverlight.UI.Modules.BeerStyle.BeerStyleModule, CapsCollection.Silverlight.UI.Modules.BeerStyle, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <modularity:ModuleInfo.DependsOn>
+                <system:String>ServicesModule</system:String>
+            </modularity:ModuleInfo.DependsOn>
+        </modularity:ModuleInfo>
+
+    </modularity:ModuleInfoGroup>
+    
+</modularity:ModuleCatalog>

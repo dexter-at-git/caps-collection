@@ -1,0 +1,32 @@
+﻿/* Large desktop */
+@media (min-width: 1200px) {
+    .responsive-font {
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .responsive-font {
+        font-size: 16px;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .responsive-font {
+        font-size: 16px;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .responsive-font {
+        font-size: 9px;
+    }
+}
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}

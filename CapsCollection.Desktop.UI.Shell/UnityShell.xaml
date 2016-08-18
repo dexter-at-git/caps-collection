@@ -1,0 +1,85 @@
+﻿<metroControls:MetroWindow x:Class="CapsCollection.Desktop.UI.Shell.UnityShell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:metroControls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:commands="clr-namespace:CapsCollection.Desktop.Infrastructure.Commands;assembly=CapsCollection.Desktop.Infrastructure"
+        xmlns:regions="http://prismlibrary.com/"
+        xmlns:resources="clr-namespace:CapsCollection.Desktop.Infrastructure.Resources;assembly=CapsCollection.Desktop.Infrastructure"
+        ShowIconOnTitleBar="True"
+        ShowTitleBar="True"
+        BorderThickness="0" GlowBrush="Black"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Width="1350"
+        Title="Caps loader">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource MetroTabItem}">
+                <Setter Property="Header" Value="{Binding Content.DataContext.HeaderInfo, RelativeSource={RelativeSource Self}}" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <metroControls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Image Stretch="Uniform" Source="Assets/Icons/Beer.ico" />
+        </DataTemplate>
+    </metroControls:MetroWindow.IconTemplate>
+    
+    <metroControls:MetroWindow.RightWindowCommands >
+        <metroControls:WindowCommands>
+
+            <Button Command="{Binding HomeCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_home}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="home" />
+                </StackPanel>
+            </Button>
+            
+            <Button Command="{x:Static commands:GlobalCommands.RefreshCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_refresh}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="refresh" />
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding UploadCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_beer}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="upload" />
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding SettingsCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="settings" />
+                </StackPanel>
+            </Button>
+
+        </metroControls:WindowCommands>
+    </metroControls:MetroWindow.RightWindowCommands>
+    
+    <DockPanel LastChildFill="True">
+        <ContentControl regions:RegionManager.RegionName="{x:Static resources:RegionNames.StatusBarRegion}" DockPanel.Dock="Bottom" />
+        <ContentControl regions:RegionManager.RegionName="{x:Static resources:RegionNames.ContentRegion}" />
+    </DockPanel>
+
+</metroControls:MetroWindow>

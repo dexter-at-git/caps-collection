@@ -1,0 +1,2 @@
+﻿<%@ ServiceHost Language="c#" Debug="true" Service="CapsCollection.Web.ServiceHost.Implementations.AuthenticationService" %>
+

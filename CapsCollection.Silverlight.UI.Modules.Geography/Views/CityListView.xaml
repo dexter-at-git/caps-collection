@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="CapsCollection.Silverlight.UI.Modules.Geography.Views.CityListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:infControls="clr-namespace:CapsCollection.Silverlight.Infrastructure.Controls;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactivity"    
+    xmlns:prism="http://www.codeplex.com/prism"
+    xmlns:converters="clr-namespace:CapsCollection.Silverlight.Infrastructure.Converters;assembly=CapsCollection.Silverlight.Infrastructure"
+    xmlns:local="clr-namespace:CapsCollection.Silverlight.UI.Modules.Geography.ViewModels" mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <ei:Interaction.Triggers>
+        <prism:InteractionRequestTrigger SourceObject="{Binding ShowMessagebox}">
+            <prism:PopupChildWindowAction/>
+        </prism:InteractionRequestTrigger>
+
+        <prism:InteractionRequestTrigger SourceObject="{Binding ShowConfirmation}">
+            <prism:PopupChildWindowAction/>
+        </prism:InteractionRequestTrigger>
+    </ei:Interaction.Triggers>
+
+    <UserControl.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <converters:InvisibilityConverter x:Key="InvisibilityConverter" />
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <local:CityListViewModel />
+    </UserControl.DataContext>
+
+    <Grid x:Name="LayoutRoot" 
+          Background="White" 
+          Visibility="{Binding IsHidden, Converter={StaticResource InvisibilityConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" 
+                Grid.RowSpan="2" 
+                VerticalAlignment="Center" 
+                Width="200"
+                Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}}">
+
+            <infControls:LoadingIndicator Style="{StaticResource LoadingIndicatorStyle}" />
+
+        </Border>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Visibility="{Binding IsBusy, Converter={StaticResource InvisibilityConverter}}">
+            
+            <Button Content="Add"
+                    Command="{Binding AddCityCommand}" />
+            
+            <Button Content="Edit"
+                    Command="{Binding EditCityCommand}"
+                    Margin="15,0,0,0" />
+            
+            <Button Content="Delete"
+                    Command="{Binding DeleteCityCommand}"
+                    Margin="15,0,0,0" />
+        </StackPanel>
+
+        <ListBox Grid.Row="2"
+                 ItemsSource="{Binding Cities}"
+                 SelectedItem="{Binding Path=SelectedCity, Mode=TwoWay}" 
+                 Visibility="{Binding IsBusy, Converter={StaticResource InvisibilityConverter}}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Width="300">
+                        <TextBlock Text="{Binding Path=EnglishCityName}" 
+                                   TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding Path=NationalCityName}" 
+                                   TextWrapping="Wrap"
+                                   FontSize="10"
+                                   Foreground="Gray"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+
+</UserControl>

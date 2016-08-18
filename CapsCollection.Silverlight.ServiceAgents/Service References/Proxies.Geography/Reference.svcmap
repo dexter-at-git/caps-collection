@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="af6ddf38-1777-43c9-85b9-3da19a97b281" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:39410/Services/GeographyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GeographyService.xsd" MetadataType="Schema" ID="fe9fcb00-2bcf-48b6-9bc0-c92079cae715" SourceId="1" SourceUrl="http://localhost:39410/Services/GeographyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GeographyService1.xsd" MetadataType="Schema" ID="76eb4b41-d644-438f-a0aa-7aa99c48d63e" SourceId="1" SourceUrl="http://localhost:39410/Services/GeographyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GeographyService.disco" MetadataType="Disco" ID="8acf6722-09fe-44b1-802b-4a5bd559d5a0" SourceId="1" SourceUrl="http://localhost:39410/Services/GeographyService.svc?disco" />
+    <MetadataFile FileName="GeographyService.wsdl" MetadataType="Wsdl" ID="5e07bab1-1a4f-450f-a5f1-a0cf702ded27" SourceId="1" SourceUrl="http://localhost:39410/Services/GeographyService.svc?wsdl" />
+    <MetadataFile FileName="GeographyService2.xsd" MetadataType="Schema" ID="be797373-db0c-4dfc-90c9-5303d2aee675" SourceId="1" SourceUrl="http://localhost:39410/Services/GeographyService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

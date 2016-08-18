@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{165D303C-62BB-4A73-90E1-D3B86D1805F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapsCollection.Business</RootNamespace>
+    <AssemblyName>CapsCollection.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuisenessServices\AuthenticationBuisenessService.cs" />
+    <Compile Include="BuisenessServices\CityBuisenessService.cs" />
+    <Compile Include="BuisenessServices\BreweryBuisenessService.cs" />
+    <Compile Include="BuisenessServices\CollectionBuisenessService.cs" />
+    <Compile Include="BuisenessServices\BeerStyleBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\IAuthenticationBuisenessService.cs" />
+    <Compile Include="DTOs\BeerDto.cs" />
+    <Compile Include="DTOs\BeerCountryDto.cs" />
+    <Compile Include="DTOs\BeerStyleDto.cs" />
+    <Compile Include="DTOs\BreweryDto.cs" />
+    <Compile Include="DTOs\CapTypeDto.cs" />
+    <Compile Include="DTOs\CityDto.cs" />
+    <Compile Include="DTOs\ContinentDto.cs" />
+    <Compile Include="DTOs\CountryDto.cs" />
+    <Compile Include="DTOs\FileOperation.cs" />
+    <Compile Include="DTOs\ImageFileOperationDto.cs" />
+    <Compile Include="DTOs\MapperProfiles\BeerMapperProfile.cs" />
+    <Compile Include="DTOs\MapperProfiles\GeographyMapperProfile.cs" />
+    <Compile Include="DTOs\RegionDto.cs" />
+    <Compile Include="BuisenessServices\Interfaces\IBeerStyleBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\ICollectionBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\IBreweryBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\ICityBuisenessService.cs" />
+    <Compile Include="BuisenessServices\RegionBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\IRegionBuisenessService.cs" />
+    <Compile Include="BuisenessServices\CountryBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\ICountryBuisenessService.cs" />
+    <Compile Include="BuisenessServices\Interfaces\IUserSecurityService.cs" />
+    <Compile Include="BuisenessServices\UserSecurityService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapsCollection.Common\CapsCollection.Common.csproj">
+      <Project>{0FEAB26E-DADE-4370-8916-134FA704BFAD}</Project>
+      <Name>CapsCollection.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapsCollection.Data\CapsCollection.Data.csproj">
+      <Project>{69d9e32b-4391-4305-a180-f1fc6639cac7}</Project>
+      <Name>CapsCollection.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

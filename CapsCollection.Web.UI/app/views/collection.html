@@ -1,0 +1,60 @@
+﻿<div class="jumbotron">
+    <div cg-busy="{promise:countriesPromise,message:'Loading countries',backdrop:false,delay:0,minDuration:0}">
+        <div class="row">
+
+            <div class="col-xs-12 form-group">
+                <label>Search criteria:</label>
+                <div class="input-group col-xs-5">
+                    <ui-select allow-clear ng-model="filter.countryId" theme="bootstrap">
+                        <ui-select-match placeholder="Select a country from the list...">{{$select.selected.EnglishCountryName}}</ui-select-match>
+                        <ui-select-choices group-by="continentGroupFunction" repeat="country.CountryId as country in countries | filter: { EnglishCountryName: $select.search }">
+                            <h6>
+                                <img style="vertical-align: central" width="16" height="16" ng-src="http://crowncaps.blob.core.windows.net/flags/{{ country.Alpha3 }}_round.png" />
+                                <span ng-bind-html="country.EnglishCountryName | highlight: $select.search"></span>
+                                <small>{{ country.BeerCount | highlight: $select.search }} beers</small>
+                            </h6>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span class="input-group-btn" style="padding-right: 20px;">
+                        <button type="button" ng-click="filter.countryId = undefined" class="btn btn-default">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-xs-5">
+                <input class="form-control" type="text" placeholder="Choose a beer name ..." ng-model="filter.beerName" name="beerName" />
+            </div>
+
+            <div class="col-xs-7 form-group">
+                <button class="btn btn-primary" ng-click="search()" ng-disabled="!filter.beerName && !filter.countryId"><i class="glyphicon glyphicon-search"></i> Search for caps</button>
+            </div>
+
+            <div class="col-xs-12 form-group">
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="filter.capType.crown" uib-btn-checkbox>Crown</label>
+                    <label class="btn btn-primary" ng-model="filter.capType.pull" uib-btn-checkbox>Pull-of</label>
+                    <label class="btn btn-primary" ng-model="filter.capType.twist" uib-btn-checkbox>Twist-of</label>
+                    <label class="btn btn-primary" ng-model="filter.capType.ceramic" uib-btn-checkbox>Ceramic</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div cg-busy="{promise:beersPromise,message:'Loading beers',backdrop:false,delay:0,minDuration:0}">
+    <div ng-repeat="beer in filteredBeers = (beers | filter:{ BeerNameNoDiacritics: filter.beerName } | filter:filterByCapType)">
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <div class="well text-center" style="background: rgb(245, 245, 245) url('http://crowncaps.blob.core.windows.net/flags/{{ beer.CountryAlpha3 }}_round.png') no-repeat top right; background-size: 24px; height: 186px;">
+                <h4>
+                    {{beer.BeerName }}
+                    <small style="display: block;">{{beer.BeerType}}</small>
+                </h4>
+                <img class="img-responsive center-block" alt="{{ beer.BeerName }}" src="http://crowncaps.blob.core.windows.net/caps/cap_{{ beer.BeerId | zpad:5 }}_thumbnail.png" />
+            </div>
+        </div>
+    </div>
+</div>
